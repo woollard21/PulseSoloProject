@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration page</title>
+</head>
+<body>
+    <div id="conatiner">
+        <div id="header">
+            <h2>Pulse</h2>
+        </div>
+        <div>
+            <h1>Pulse Youth Group</h1>
+        </div>
+        <form action="/register/user" method="post">
+            <label>First Name:</label>
+            <input type="text" name="first_name">
+            <label>Last Name:</label>
+            <input type="text" name="last_name">
+            <label>Date of Birth:</label>
+            <input type="date" name="date_of_birth">
+            <label>Email: </label>
+            <input type="text" name="email">
+            <label>Password:</label>
+            <input type="password" name="password">
+            <label>Confirm Password:</label>
+            <input type="password" name="">
+            <label>I am a new student!</label>
+            <input type="checkbox" name="first_time_student">
+            <label>I want to recieve news and updates at my email!</label>
+            <input type="checkbox" name="spam">
+            <button>Register</button>
+        </form>
+    </div>
+</body>
+</html>
