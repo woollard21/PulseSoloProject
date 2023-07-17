@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    <title>Create Post</title>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h2>Pulse</h2>
+        </div>
+        <div>
+{% with messages = get_flashed_messages(category_filter=["post"]) %}<!-- declare a variable called messages -->
+    {% if messages %}<!-- check if there are any messages -->
+        {% for message in messages %}<!-- loop through the messages -->
+            <p>{{message}}</p><!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+            <form action="/submit/post" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Title</label>
+                    <input type="text" name="name" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Post:</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="post"></textarea>
+                </div>
+                <input type="hidden" name="users_id" value="{{session['logged_in_id']}}">
+                <button class="btn btn-outline-success">Submit Post</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

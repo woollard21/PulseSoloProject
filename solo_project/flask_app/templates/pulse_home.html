@@ -4,24 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
     <title>Document</title>
 </head>
 <body>
-    <div id="conatiner">
+    <div id="container">
         <div id="header">
-            <h2>Pulse</h2>
+            <img src="static/img/pulse_logo1.jpg">
         </div>
-        <div>
-            <h1>Pulse Youth Group</h1>
+        <div id="login_page">
+            <form action="/login/user" method="post">
+                <div class="text-center">
+                    <img src="static/img/pulse_home.jpg"
+                    style="width: 700px;" alt="logo">
+                    <h4 class="mt-1 mb-5 pb-1">We are Pulse Youth Group</h4>
+                </div>
+                    <p>Please login to your account</p>
+                <div class="form-outline mb-4">
+{% with messages = get_flashed_messages(category_filter=["login"]) %}<!-- declare a variable called messages -->
+    {% if messages %}<!-- check if there are any messages -->
+        {% for message in messages %}<!-- loop through the messages -->
+            <p>{{message}}</p><!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+                    <label class="form-label">Email address:</label>
+                    <input type="email" class="form-control" name="email" placeholder="name@example.com"/>
+                </div>
+                <div class="form-outline mb-4">
+                    <label class="form-label" >Password:</label>
+                    <input type="password" class="form-control" name="password" />
+                </div>
+                <button class="btn btn-outline-success">Login</button>
+            </form>
+            <div>
+                <a href="/register_page.html"><button class="btn btn-outline-success" >Register New User</button></a>
+            </div>
         </div>
-        <form action="/login/user" method="post">
-            <label>Email </label>
-            <input type="text" name="email">
-            <label>Password</label>
-            <input type="password" name="password">
-            <button>Login</button>
-        </form>
-        <button><a href="/register_page.html">Register</a></button>
     </div>
 </body>
+
 </html>

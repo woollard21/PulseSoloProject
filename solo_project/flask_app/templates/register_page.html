@@ -3,35 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
     <title>registration page</title>
 </head>
 <body>
-    <div id="conatiner">
+    <div id="container">
         <div id="header">
-            <h2>Pulse</h2>
+            <!-- <h2>Pulse</h2> -->
+            <img src="static/img/pulse_logo1.jpg">
         </div>
         <div>
-            <h1>Pulse Youth Group</h1>
+            <!-- <h1>Pulse Youth Group</h1> -->
         </div>
+{% with messages = get_flashed_messages(category_filter=["registration"]) %}<!-- declare a variable called messages -->
+    {% if messages %}<!-- check if there are any messages -->
+        {% for message in messages %}<!-- loop through the messages -->
+            <p>{{message}}</p><!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+{% endwith %}
         <form action="/register/user" method="post">
-            <label>First Name:</label>
-            <input type="text" name="first_name">
-            <label>Last Name:</label>
-            <input type="text" name="last_name">
-            <label>Date of Birth:</label>
-            <input type="date" name="date_of_birth">
-            <label>Email: </label>
-            <input type="text" name="email">
-            <label>Password:</label>
-            <input type="password" name="password">
-            <label>Confirm Password:</label>
-            <input type="password" name="">
-            <label>I am a new student!</label>
-            <input type="checkbox" name="first_time_student">
-            <label>I want to recieve news and updates at my email!</label>
-            <input type="checkbox" name="spam">
-            <button>Register</button>
+            <div class="mb-3">
+                <label class="form-label">First Name:</label>
+                <input type="text" name="first_name" class="form-control"  placeholder="first">
+            </div>
+
+            <div class="mb-3">
+                <label  class="form-label">Last Name:</label>
+                <input type="text" name="last_name" class="form-control" placeholder="last">
+            </div>
+
+            <div class="mb-3">
+                <label  class="form-label">Date of Birth:</label>
+                <input type="date" name="date_of_birth" class="form-control" >
+            </div>
+
+            <div class="mb-3">
+                <label  class="form-label">Email address:</label>
+                <input type="email" name="email" class="form-control" placeholder="name@example.com">
+            </div>
+                <label class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" >
+                    <div class="form-text">
+                        Your password must be at least 8 characters long, contain letters, numbers,special characters and must not contain spaces!
+                    </div>
+
+            <label class="form-label">Confirm Password</label>
+            <input type="password" name="confirm password" class="form-control">
+            <div class="form-check">
+                <input type="hidden" name="subscribe" value="0">
+                <input class="form-check-input" name="subscribe" value="1" type="checkbox" checked>
+                <label class="form-check-label" >I want to recieve news and updates at my email!</label>
+            </div>
+
+            <div class="form-check">
+                <input type="hidden" name="new_student" value="0">
+                <input class="form-check-input" name="new_student" value="1" type="checkbox" checked>
+                <label class="form-check-label" >I am a first time student!</label>
+            </div>
+        <button class="btn btn-outline-success" >Register</button>
         </form>
     </div>
 </body>
 </html>
+<!-- class="p-3 mb-2 bg-light text-dark" -->
+<!-- class="btn btn-outline-success" -->

@@ -1,0 +1,16 @@
+#container {
+    margin: 0px auto;
+    width: 960px;
+}
+
+* {
+    color: rgb(8, 155, 20);
+}
+
+img {
+    width: 300px;
+}
+
+button {
+    margin: 5px;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    <title>Pulse Social</title>
+</head>
+<body>
+    <div id="container">
+        <nav class="navbar navbar-light bg-light">
+            <!-- <h2>Pulse</h2> -->
+            <h1>Pulse Youth Group Social</h1>
+            <a href="/create"><button class="btn btn-outline-success" >Create Post</button></a>
+            <a href="/store"><button class="btn btn-outline-success" >Store</button></a>
+            <form action ="/logout" method="post"><button class="btn btn-outline-success" >Logout</button>
+        </nav>
+        <table class="table bg-light">
+            <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Post</th>
+                <th></th>
+            </tr>
+            {% for post in all_posts %}
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">{{post.name}}</th>
+                <td>{{post.post}}</td>
+                {% if session['logged_in_id'] == post.users_id %}
+                <td>
+                    <form action ="/post/delete" method="post">
+                    <input type="hidden" name="id" value="{{post.id}}">
+                    <button class="btn btn-outline-success">Delete</button>
+                    </form>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
