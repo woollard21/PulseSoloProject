@@ -1,20 +1,25 @@
 Solo Project
 
-Name: Pulse
+Name: Thriftlemore
 
-Description: Project idea is for students in junior high and highschool in a local youth group. You will be able to see posts, sermons, notifications, updates, and possibly able to buy merch.
-Additionally students will have the option of creating an account so that they can post questions they may have or other insprining information and hopefully other students (and leaders) will be able to comment and like these posts. This idea came about as a way for these students who usually don't have cell phones, have a safe and effective way to communicate in which their parents feel safe letting them use. 
+Description: Project idea is for users to be able to shop thrifted items.  
 
 Feature List:
 Validation for all the things it is releveant for in this list
 Login and Registration
-Videos
-Posts
+Ability to purchase clothing only if registered
+Ability to browse items if not registered
 
 BONUS:
-Likes and Comments
-Storefront
-Email subscribition
+Saves button for stuff you may want to buy
+Each user can have their own mini store where they post items for others to buy
+Review page for sellers and store items
+
 
 Langauge: Python
-GitHub repo link:https://github.com/woollard21/PulseSoloProject
+GitHub repo link:
+
+Group M: 
+Roles: Front-End:Sarah Flynn
+       Back-End/Database:Jared Campos
+       Back-End/Database:Seth Woollard
